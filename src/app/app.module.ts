@@ -7,12 +7,14 @@ import { MedicosComponent } from './componentes/medicos/medicos.component';
 import { PacientesComponent } from './componentes/pacientes/pacientes.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { PacientesverComponent } from './emergentes/pacientesver/pacientesver.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MedicosComponent,
-    PacientesComponent
+    PacientesComponent,
+    PacientesverComponent
   ],
   imports: [
     BrowserModule,

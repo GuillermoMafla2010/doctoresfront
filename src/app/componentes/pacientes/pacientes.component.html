@@ -34,17 +34,19 @@
               <td mat-cell *matCellDef="let element"> {{element.celular}} </td>
             </ng-container>
           
-            <!-- <ng-container matColumnDef="Opciones">
+
+            <!-- Columna para las opciones -->
+             <ng-container matColumnDef="Opciones">
               <th mat-header-cell *matHeaderCellDef> Opciones </th>
               <td mat-cell *matCellDef="let  element" >
-                <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" mat-button (click)="abrirModal(element.id,element.nombre)" >
+                <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" mat-button (click)="edit(element.id)" >
                     <mat-icon aria-label="Edit">edit</mat-icon>
                   </button>
-                <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" mat-button (click)="openDialog()" >
+                <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" mat-button  (click)="borrar(element.id)">
                     <mat-icon aria-label="Delete">delete</mat-icon>
                   </button>
                 </td>
-            </ng-container> -->
+            </ng-container> 
           
           
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
