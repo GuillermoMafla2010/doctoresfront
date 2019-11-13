@@ -16,4 +16,8 @@ export class PacientesService {
   getPacientes():Observable<any>{
     return this.http.get<any>(this.url);
   }
+
+  getPacientesPorId(id):Observable<any>{
+    return this.http.get<any>(`${this.url}/${id}`)
+  }
 }
