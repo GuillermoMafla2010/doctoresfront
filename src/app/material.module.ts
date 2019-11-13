@@ -6,8 +6,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatIconModule} from '@angular/material/icon';
-
-
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
 
@@ -17,7 +18,10 @@ import {MatIconModule} from '@angular/material/icon';
         MatTableModule,
         MatPaginatorModule,
         MatDialogModule,
-        MatIconModule
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatFormFieldModule,
+        MatSelectModule
     ],
     exports: [
         MatInputModule,
@@ -25,7 +29,10 @@ import {MatIconModule} from '@angular/material/icon';
         MatTableModule,
         MatPaginatorModule,
         MatDialogModule,
-        MatIconModule
+        MatIconModule,
+        MatProgressSpinnerModule,
+        MatFormFieldModule,
+        MatSelectModule
     ],
     entryComponents: [
       PacientesverComponent

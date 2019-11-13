@@ -1,4 +1,11 @@
-<div class="container layout">
+
+<div *ngIf="pacientes==undefined || pacientes?.length<0" class="text-center centrado">
+<mat-spinner></mat-spinner>
+</div>
+
+<div class="container layout"  *ngIf="pacientes!=undefined || pacientes?.length>0">
+
+    
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!--- Note that these columns can be defined in any order.

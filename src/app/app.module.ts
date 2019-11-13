@@ -8,20 +8,24 @@ import { PacientesComponent } from './componentes/pacientes/pacientes.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PacientesverComponent } from './emergentes/pacientesver/pacientesver.component';
+import { CrearPacientesComponent } from './componentes/pacientes/crear-pacientes/crear-pacientes.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     MedicosComponent,
     PacientesComponent,
-    PacientesverComponent
+    PacientesverComponent,
+    CrearPacientesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

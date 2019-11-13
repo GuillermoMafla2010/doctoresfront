@@ -1,0 +1,52 @@
+
+
+<div class="example-container">
+        <form class="example-form" (ngSubmit)="guardapaciente()">
+
+                <!-- <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Favorite food" value="Sushi">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                  <input matInput  value="Nombre" [(ngModel)]="paciente.nombre">
+                </mat-form-field> -->
+              
+                <!-- <mat-form-field class="example-full-width">
+                    <input matInput  value="Apellido" [(ngModel)]="paciente.apellido">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput  value="Email" [(ngModel)]="paciente.email">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput  value="Celular" [(ngModel)]="paciente.celular">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <button name="submit" type="submit" id="contact-submit" data-submit="...Sending">Guardar</button>
+                </mat-form-field> -->
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Nombre"  [(ngModel)]="paciente.nombre" name="nombre">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                    <input matInput placeholder="Apellido"  [(ngModel)]="paciente.apellido" name="apellido">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email"  [(ngModel)]="paciente.email" name="email">
+                </mat-form-field>
+
+                <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Celular"  [(ngModel)]="paciente.celular" name="celular">
+                </mat-form-field>
+
+                <input type="submit" value="Guardar" class="btn btn-success">
+
+               
+        </form>
+              
+  </div>
+  
