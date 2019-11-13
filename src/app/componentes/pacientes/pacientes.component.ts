@@ -19,7 +19,7 @@ export class PacientesComponent implements OnInit {
   dataSource : any;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
-  constructor(private pacienteservice:PacientesService,public dialog: MatDialog , public modalpacientesver:PacientesverComponent) { }
+  constructor(private pacienteservice:PacientesService,public dialog: MatDialog ) { }
 
   ngOnInit() {
     this.dataSource=new MatTableDataSource();
@@ -35,20 +35,21 @@ export class PacientesComponent implements OnInit {
     })
   }
 
-  edit(id){
-    console.log(id)
-  }
-
-  borrar(id){
-    console.log(id)
-  }
-
-  openDialog() {
+  edit(id) {
+    console.log(id);
     this.dialog.open(PacientesverComponent, {
       data: {
-        animal: 'panda'
+        animal: id
       }
     });
+  }
+
+  borrar(id) {
+
+  }
+
+   openDialog() {
+
   }
 
 }
