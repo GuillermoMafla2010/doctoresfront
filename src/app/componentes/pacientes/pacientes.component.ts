@@ -45,10 +45,34 @@ export class PacientesComponent implements OnInit {
   }
 
   borrar(id) {
-    this.pacienteservice.deletepaciente(id).subscribe(x=>{
-      swal.fire(`Paciente Eliminado`, 'Se elimino correctamente' , 'info' )
-      this.getpacientes()
+
+    swal.fire({
+      title: 'Estas seguro de eliminar el registro',
+      text: "Se borrará permanentemente el registro",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.pacienteservice.deletepaciente(id).subscribe(x=>{
+          
+          this.getpacientes()
+        })
+        swal.fire(
+          'Eliminado',
+          'Se elimino correctamente',
+          'success'
+        )
+      }
     })
+
+
+
+
+    
 
   }
 
