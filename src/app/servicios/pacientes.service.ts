@@ -24,8 +24,14 @@ export class PacientesService {
     return this.http.get<any>(`${this.url}/${id}`)
   }
 
-  postpaciente(paciente:Pacientes){
+  //inserta un nuevo paciente
+  postpaciente(paciente:Pacientes):Observable<any>{
     return this.http.post<any>(this.url,paciente)
+  }
+
+  //elimina a un paciente
+  deletepaciente(id){
+    return this.http.delete<any>(`${this.url}/${id}`)
   }
 
 }

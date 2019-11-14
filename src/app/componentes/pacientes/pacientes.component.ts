@@ -5,7 +5,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Pacientes } from 'src/app/modelos/Pacientes';
 import { PacientesverComponent } from 'src/app/emergentes/pacientesver/pacientesver.component';
-
+import swal from 'sweetalert2'
 
 @Component({
   selector: 'app-pacientes',
@@ -45,6 +45,10 @@ export class PacientesComponent implements OnInit {
   }
 
   borrar(id) {
+    this.pacienteservice.deletepaciente(id).subscribe(x=>{
+      swal.fire(`Paciente Eliminado`, 'Se elimino correctamente' , 'info' )
+      this.getpacientes()
+    })
 
   }
 
