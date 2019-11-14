@@ -10,6 +10,7 @@ import { MaterialModule } from './material.module';
 import { PacientesverComponent } from './emergentes/pacientesver/pacientesver.component';
 import { CrearPacientesComponent } from './componentes/pacientes/crear-pacientes/crear-pacientes.component';
 import {FormsModule} from '@angular/forms';
+import { CrearMedicosComponent } from './componentes/medicos/crear-medicos/crear-medicos.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from '@angular/forms';
     MedicosComponent,
     PacientesComponent,
     PacientesverComponent,
-    CrearPacientesComponent
+    CrearPacientesComponent,
+    CrearMedicosComponent
   ],
   imports: [
     BrowserModule,

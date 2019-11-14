@@ -1,22 +1,20 @@
-
-
 <div class="example-container">
-        <form class="example-form" (ngSubmit)="guardapaciente()">
+        <form class="example-form" (ngSubmit)="guardarmedicos()">
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Nombre"  [(ngModel)]="paciente.nombre" name="nombre">
+                    <input matInput placeholder="Nombre"  [(ngModel)]="medicos.nombre" name="nombre">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                    <input matInput placeholder="Apellido"  [(ngModel)]="paciente.apellido" name="apellido">
+                    <input matInput placeholder="Apellido"  [(ngModel)]="medicos.apellido" name="apellido">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                        <input matInput placeholder="Email"  [(ngModel)]="paciente.email" name="email">
+                        <input matInput placeholder="Email"  [(ngModel)]="medicos.email" name="email">
                 </mat-form-field>
 
                 <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Celular"  [(ngModel)]="paciente.celular" name="celular">
+                            <input matInput placeholder="Celular"  [(ngModel)]="medicos.celular" name="celular">
                 </mat-form-field>
 
                 <input type="submit" value="Guardar" class="btn btn-success">
@@ -25,4 +23,3 @@
         </form>
               
   </div>
-  
