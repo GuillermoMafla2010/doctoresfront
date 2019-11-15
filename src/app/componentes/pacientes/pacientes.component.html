@@ -1,16 +1,10 @@
 
-<div *ngIf="pacientes==undefined || pacientes?.length<0" class="text-center centrado">
-<mat-spinner></mat-spinner>
-</div>
-
-<div *ngIf="pacientes?.length==0" class="alert alert-danger">
-  No existen pacientes registrados
-</div>
-
-<div class="container layout"  *ngIf="pacientes?.length>0 ">
 
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+  
+    <table  mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
             <!--- Note that these columns can be defined in any order.
                   The actual rendered columns are set as a property on the row definition" -->
@@ -70,5 +64,5 @@
 
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
 
-          <button class="btn btn-success" (click)="openDialog()">Guardar</button>
-</div>
+     
+

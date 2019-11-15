@@ -17,4 +17,9 @@ export class MedicosService {
   postMedicos(medicos):Observable<any>{
     return this.http.post<any>(this.url,medicos)
   }
+
+  //Metodo que retorna todos los medicos
+  getMedicos():Observable<any>{
+    return this.http.get<any>(this.url)
+  }
 }

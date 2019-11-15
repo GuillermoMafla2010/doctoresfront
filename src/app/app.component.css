@@ -60,7 +60,7 @@ span {
 #sidebar {
     min-width: 250px;
     max-width: 250px;
-    background: #7386D5;
+    background:#292b2c;
     color: #fff;
     transition: all 0.3s;
 }
@@ -112,7 +112,7 @@ span {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #292b2c
 }
 
 #sidebar .sidebar-header strong {
@@ -132,7 +132,7 @@ span {
 }
 
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #292b2c;
     background: #fff;
 }
 
@@ -143,7 +143,7 @@ span {
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background:#292b2c;
 }
 
 a[data-toggle="collapse"] {
@@ -161,7 +161,7 @@ a[data-toggle="collapse"] {
 ul ul a {
     font-size: 0.9em !important;
     padding-left: 30px !important;
-    background: #6d7fcc;
+    background:#292b2c
 }
 
 ul.CTAs {
@@ -178,7 +178,7 @@ ul.CTAs a {
 
 a.download {
     background: #fff;
-    color: #7386D5;
+    color:#292b2c
 }
 
 a.article,
@@ -248,5 +248,9 @@ a.article:hover {
     }
     #sidebarCollapse span {
         display: none;
+    }
+
+    .color{
+        color: #002E5B;
     }
 }

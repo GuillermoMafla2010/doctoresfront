@@ -14,24 +14,29 @@ import swal from 'sweetalert2'
 })
 export class PacientesComponent implements OnInit {
 
-  public pacientes:Pacientes[];
+  public pacientes:Pacientes[]=[];
   displayedColumns: string[] = ['ID', 'Nombre', 'Apellido', 'Email','Celular','Opciones'];
   dataSource : any;
 
-  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  
   constructor(private pacienteservice:PacientesService,public dialog: MatDialog ) { }
-
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   ngOnInit() {
     this.dataSource=new MatTableDataSource();
     this.dataSource.paginator=this.paginator;
     this.getpacientes()
   }
 
+  
+
   getpacientes(){
     this.pacienteservice.getPacientes().subscribe(x=>{
       this.pacientes=x.pacientes;
-      this.dataSource.data=this.pacientes
-      console.log(this.dataSource)
+      setTimeout(() => {
+        this.dataSource.data=this.pacientes  
+      }, 10);
+      
+      
     })
   }
 
@@ -44,8 +49,8 @@ export class PacientesComponent implements OnInit {
     });
   }
 
-  borrar(id) {
 
+  borrar(id) {
     swal.fire({
       title: 'Estas seguro de eliminar el registro',
       text: "Se borrará permanentemente el registro",
@@ -58,7 +63,6 @@ export class PacientesComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.pacienteservice.deletepaciente(id).subscribe(x=>{
-          
           this.getpacientes()
         })
         swal.fire(
