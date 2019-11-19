@@ -4,7 +4,7 @@ import { Medicos } from 'src/app/modelos/Medicos';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
-
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-medicos',
@@ -34,5 +34,34 @@ export class MedicosComponent implements OnInit {
       console.log(this.medicos)
     })
   }
+
+  edit(id){
+    console.log(id)
+  }
+
+  borrar(id){
+    swal.fire({
+      title: 'Estas seguro de eliminar el registro',
+      text: "Se borrará permanentemente el registro",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.ms.borrarMedicos(id).subscribe(x=>{
+          this.getMedicos()
+        })
+        swal.fire(
+          'Eliminado',
+          'Se elimino correctamente',
+          'success'
+        )
+      }
+    })
+  }
+  
 
 }

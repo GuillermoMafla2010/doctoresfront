@@ -22,4 +22,9 @@ export class MedicosService {
   getMedicos():Observable<any>{
     return this.http.get<any>(this.url)
   }
+
+  //Metodo para eliminar a un determinado medico
+  borrarMedicos(id):Observable<any>{
+    return this.http.delete<any>(`${this.url}/${id}`)
+  }
 }

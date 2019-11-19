@@ -1,12 +1,12 @@
-<div *ngIf="pacientes==undefined || pacientes?.length<0" class="text-center centrado">
+<div *ngIf="medicos==undefined || medicos?.length<0" class="text-center centrado">
         <mat-spinner></mat-spinner>
         </div>
         
-        <div *ngIf="pacientes?.length==0" class="alert alert-danger">
+        <div *ngIf="medicos?.length==0" class="alert alert-danger">
           No existen pacientes registrados
         </div>
         
-        <div class="container layout"  *ngIf="pacientes?.length>0 ">
+        <div class="container layout"  >
         
         
             <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
