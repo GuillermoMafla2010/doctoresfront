@@ -11,6 +11,7 @@ import { PacientesverComponent } from './emergentes/pacientesver/pacientesver.co
 import { CrearPacientesComponent } from './componentes/pacientes/crear-pacientes/crear-pacientes.component';
 import {FormsModule} from '@angular/forms';
 import { CrearMedicosComponent } from './componentes/medicos/crear-medicos/crear-medicos.component';
+import { EspecialidadesComponent } from './componentes/especialidades/especialidades.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CrearMedicosComponent } from './componentes/medicos/crear-medicos/crear
     PacientesComponent,
     PacientesverComponent,
     CrearPacientesComponent,
-    CrearMedicosComponent
+    CrearMedicosComponent,
+    EspecialidadesComponent
   ],
   imports: [
     BrowserModule,
