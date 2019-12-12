@@ -9,6 +9,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 @NgModule({
 
@@ -21,7 +22,8 @@ import {MatSelectModule} from '@angular/material/select';
         MatIconModule,
         MatProgressSpinnerModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+        MatAutocompleteModule
     ],
     exports: [
         MatInputModule,
@@ -32,7 +34,8 @@ import {MatSelectModule} from '@angular/material/select';
         MatIconModule,
         MatProgressSpinnerModule,
         MatFormFieldModule,
-        MatSelectModule
+        MatSelectModule,
+        MatAutocompleteModule
     ],
     entryComponents: [
       PacientesverComponent

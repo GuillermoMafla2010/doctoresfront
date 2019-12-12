@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { PacientesverComponent } from './emergentes/pacientesver/pacientesver.component';
 import { CrearPacientesComponent } from './componentes/pacientes/crear-pacientes/crear-pacientes.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { CrearMedicosComponent } from './componentes/medicos/crear-medicos/crear-medicos.component';
 import { EspecialidadesComponent } from './componentes/especialidades/especialidades.component';
 
@@ -29,7 +29,8 @@ import { EspecialidadesComponent } from './componentes/especialidades/especialid
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

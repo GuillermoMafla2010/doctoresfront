@@ -1,1 +1,17 @@
-<p>especialidades works!</p>
+<div class="container">
+    <div class="row">
+        
+        <form class="example-form">
+         <label>Doctor : </label>
+         <mat-form-field class="example-full-width">
+                <input type="text" placeholder="Añade un nuevo producto" aria-label="Assignee" matInput [formControl]="autocomplete" [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="seleccionarProducto($event)">
+                  <mat-option *ngFor="let option of options | async" [value]="option">
+                    {{option.nombre}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+          </form>
+          
+    </div>
+</div>
