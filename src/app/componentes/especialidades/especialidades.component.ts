@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { MedicosService } from 'src/app/servicios/medicos.service';
 import { Medicos } from 'src/app/modelos/Medicos';
 import {map, startWith, flatMap} from 'rxjs/operators';
+import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material';
 
 @Component({
   selector: 'app-especialidades',
@@ -39,7 +40,7 @@ export class EspecialidadesComponent implements OnInit {
 
 
   displayFn(medicos?: Medicos): string | undefined {
-    return medicos ? medicos.nombre : undefined;
+    return medicos ? medicos.nombre + ' '+ medicos.apellido : undefined;
   }
 
   private _filter(name: string): Medicos[] {
@@ -47,6 +48,12 @@ export class EspecialidadesComponent implements OnInit {
   
    // return this.listaproducto.filter(option => option.nombre.toLowerCase().indexOf(filterValue) === 0);
    return this.lista.filter(option => option.nombre.toLowerCase().indexOf(filterValue) === 0);
+  }
+
+
+  seleccionarProducto(event:MatAutocompleteSelectedEvent){
+    let producto=event.option.value
+    console.log(producto)
   }
 
 }

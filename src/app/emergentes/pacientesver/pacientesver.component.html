@@ -1,7 +1,41 @@
-<p>pacientesver works!</p>
-<div *ngFor="let item of pacientes">
-  <p>{{item.nombre}}</p>
+<p  class="text-center" style="margin-top: 5px;">Modificar Pacientes</p>
+
+
+<form class="example-form" (submit)="actualizar()">
+   
+  <div *ngIf="loading==0">
+      <mat-spinner></mat-spinner>
+  </div>
+
+  <mat-form-field class="example-full-width">
+    <input matInput placeholder="Nombre"  value="{{pacientes.nombre}}" name="nombre" [(ngModel)]="pacientes.nombre" name="nombre">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Apellido"  value="{{pacientes.apellido}}" [(ngModel)]="pacientes.apellido" name="apellido">
+  </mat-form-field>
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Email" value="{{pacientes.email}}" [(ngModel)]="pacientes.email" name="email">
+  </mat-form-field>
+
+
+  <mat-form-field class="example-full-width">
+      <input matInput placeholder="Celular"  value="{{pacientes.celular}}" [(ngModel)]="pacientes.celular" name="celular">
+  </mat-form-field>
+
+  <div style="text-align: right;">
+      <button type="submit"  style="margin-right: 5px;" class="btn btn-success">Actualizar</button>
+      <button type="submit" (click)="salir()" class="btn btn-danger">Cancelar</button>
+    </div>
+
+</form>
+
+
+
+
+  <!-- <p></p>
   <p>{{item.apellido}}</p>
   <p>{{item.email}}</p>
-  <p>{{item.celular}}</p>
-</div>
+  <p>{{item.celular}}</p> -->
+

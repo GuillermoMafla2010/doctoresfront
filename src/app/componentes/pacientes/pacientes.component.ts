@@ -25,6 +25,10 @@ export class PacientesComponent implements OnInit {
     this.dataSource=new MatTableDataSource();
     this.dataSource.paginator=this.paginator;
     this.getpacientes()
+    this.pacienteservice.notificarEditar.subscribe(x=>{
+      this.getpacientes()
+    })
+    
   }
 
   

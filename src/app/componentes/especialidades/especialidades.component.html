@@ -7,7 +7,7 @@
                 <input type="text" placeholder="Añade un nuevo producto" aria-label="Assignee" matInput [formControl]="autocomplete" [matAutocomplete]="auto">
                 <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="seleccionarProducto($event)">
                   <mat-option *ngFor="let option of options | async" [value]="option">
-                    {{option.nombre}}
+                    {{option.nombre}} {{option.apellido}}
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>

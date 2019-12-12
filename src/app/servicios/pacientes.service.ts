@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable , EventEmitter } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import { Pacientes } from '../modelos/Pacientes';
 import { Observable } from 'rxjs';
@@ -11,8 +11,16 @@ import { Observable } from 'rxjs';
 export class PacientesService {
 
   paciente:Pacientes
-  private url="http://localhost:3001/pacientes"
+  private url="http://localhost:3001/pacientes";
+  private _notificarEditar=new EventEmitter<any>();
+
+
   constructor(private http:HttpClient) { }
+
+
+  get notificarEditar():EventEmitter<any>{
+    return this._notificarEditar;
+  }
 
   //Obtiene todos los pacientes
   getPacientes():Observable<any>{
@@ -32,6 +40,11 @@ export class PacientesService {
   //elimina a un paciente
   deletepaciente(id){
     return this.http.delete<any>(`${this.url}/${id}`)
+  }
+
+  //actualiza a un paciente
+  actualizapaciente(paciente){
+    return this.http.put<any>(`${this.url}/${paciente.id}` , paciente);
   }
 
 }
