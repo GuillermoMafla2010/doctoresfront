@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { Especialidades } from 'src/app/modelos/Especialidades';
-import {FormControl} from '@angular/forms';
-import { Observable } from 'rxjs';
-import { MedicosService } from 'src/app/servicios/medicos.service';
-import { Medicos } from 'src/app/modelos/Medicos';
-import {map, startWith, flatMap} from 'rxjs/operators';
-import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { EspecialidadesService } from 'src/app/servicios/especialidades.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import swal from 'sweetalert2';
+import { EditarEspecialidadComponent } from 'src/app/emergentes/editar-especialidad/editar-especialidad.component';
 
 @Component({
   selector: 'app-especialidades',
@@ -14,46 +14,75 @@ import {MatAutocomplete, MatAutocompleteSelectedEvent} from '@angular/material';
 })
 export class EspecialidadesComponent implements OnInit {
 
-  lista:Medicos[]=[];
-  autocomplete = new FormControl();
-  options: Observable<Medicos[]>
+  displayedColumns: string[] = ['position', 'name' , 'options'];
+  
+  public especialidades:Especialidades
+  public especialidad:Especialidades=new Especialidades;
+  public dataSource:any
+  constructor(private es:EspecialidadesService , public dialog:MatDialog){}
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  constructor(public ms:MedicosService) { }
-
-  ngOnInit() {
-    this.getRegistros()
-    this.options = this.autocomplete.valueChanges
-      .pipe(
-
-        map(value => typeof value === 'string' ? value : value.nombre),
-        map(name => name ? this._filter(name) : this.lista.slice())
-      );
+  ngOnInit(){
+    this.dataSource=new MatTableDataSource();
+    this.getEspecialidades()
+    this.dataSource.paginator=this.paginator;
   }
 
-  getRegistros(){
-    this.ms.getMedicos().subscribe(x=>{
-      this.lista=x.medicos
+  getEspecialidades(){
+    this.es.getEspecialidades().subscribe(x=>{
+      this.especialidades=x.spec
+      this.dataSource.data=this.especialidades
+      console.log(this.dataSource)
       
     })
   }
 
 
 
-  displayFn(medicos?: Medicos): string | undefined {
-    return medicos ? medicos.nombre + ' '+ medicos.apellido : undefined;
-  }
-
-  private _filter(name: string): Medicos[] {
-    const filterValue = name.toLowerCase();
-  
-   // return this.listaproducto.filter(option => option.nombre.toLowerCase().indexOf(filterValue) === 0);
-   return this.lista.filter(option => option.nombre.toLowerCase().indexOf(filterValue) === 0);
+  guardarEspecialidad(){
+    
+    this.es.postEspecialidad(this.especialidad).subscribe(y=>{
+      swal.fire('Guardado','Especialidad creada con exito','success')
+      this.getEspecialidades();
+    });
   }
 
 
-  seleccionarProducto(event:MatAutocompleteSelectedEvent){
-    let producto=event.option.value
-    console.log(producto)
+
+  borrar(id){
+    this.es.borrarEspecialidad(id).subscribe(y=>{
+      swal.fire({
+      title: 'Estas seguro de eliminar el registro',
+      text: "Se borrará permanentemente el registro",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Aceptar',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.value) {
+        this.es.borrarEspecialidad(id).subscribe(z=>{
+          this.getEspecialidades()
+        })
+        swal.fire(
+          'Eliminado',
+          'Se elimino correctamente',
+          'success'
+        )
+      }
+    })
+    })
   }
+
+
+
+  edit(id){
+    this.dialog.open(EditarEspecialidadComponent,{data:{
+      id}
+    })
+  }
+
+
 
 }

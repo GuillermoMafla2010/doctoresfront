@@ -12,6 +12,8 @@ import { CrearPacientesComponent } from './componentes/pacientes/crear-pacientes
 import {FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { CrearMedicosComponent } from './componentes/medicos/crear-medicos/crear-medicos.component';
 import { EspecialidadesComponent } from './componentes/especialidades/especialidades.component';
+import { CitasComponent } from './componentes/citas/citas.component';
+import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/editar-especialidad.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { EspecialidadesComponent } from './componentes/especialidades/especialid
     PacientesverComponent,
     CrearPacientesComponent,
     CrearMedicosComponent,
-    EspecialidadesComponent
+    EspecialidadesComponent,
+    CitasComponent,
+    EditarEspecialidadComponent
   ],
   imports: [
     BrowserModule,

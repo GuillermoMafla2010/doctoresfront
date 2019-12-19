@@ -5,6 +5,7 @@ import { PacientesComponent } from './componentes/pacientes/pacientes.component'
 import { CrearPacientesComponent } from './componentes/pacientes/crear-pacientes/crear-pacientes.component';
 import { CrearMedicosComponent } from './componentes/medicos/crear-medicos/crear-medicos.component';
 import { EspecialidadesComponent } from './componentes/especialidades/especialidades.component';
+import { CitasComponent } from './componentes/citas/citas.component';
 
 
 
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'medicos' , component:MedicosComponent},
   {path:'nuevopaciente' , component:CrearPacientesComponent},
   {path:'nuevomedico' ,component:CrearMedicosComponent},
-  {path:'especialidades',component:EspecialidadesComponent}
+  {path:'especialidades',component:EspecialidadesComponent},
+  {path:'citas' , component:CitasComponent}
 
 ];
 

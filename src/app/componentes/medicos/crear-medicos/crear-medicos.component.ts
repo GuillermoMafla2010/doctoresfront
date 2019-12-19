@@ -48,7 +48,7 @@ export class CrearMedicosComponent implements OnInit {
           console.log(z)
         })
       })
-      this.router.navigate(['/medicos'])
+      this.router.navigate(['/medicos']);
     })
 
     /*for(var i=0 ; i<this.especialidades_id.length ; i++){
