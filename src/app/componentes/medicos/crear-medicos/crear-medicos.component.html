@@ -17,6 +17,20 @@
                             <input matInput placeholder="Celular"  [(ngModel)]="medicos.celular" name="celular">
                 </mat-form-field>
 
+
+                <mat-form-field class="example-full-width">
+                                <mat-select placeholder="Especialidades" [formControl]="toppings" multiple  (ngModelChange)="onChange($event)">
+                                  <mat-select-trigger>
+                                    {{toppings.value ? toppings.value[0] : ''}}
+                                    <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                                      (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'mas' : 'mas'}})
+                                    </span>
+                                  </mat-select-trigger>
+                                  <mat-option *ngFor="let topping of especialidades"  [value]="topping.nombre_especialidad">{{topping.nombre_especialidad}}</mat-option>
+                                </mat-select>
+                </mat-form-field> <br>
+                              
+
                 <input type="submit" value="Guardar" class="btn btn-success">
 
                
