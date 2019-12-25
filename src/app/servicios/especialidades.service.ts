@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable , EventEmitter } from '@angular/core';
 import { Medicos } from '../modelos/Medicos';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -13,7 +13,15 @@ export class EspecialidadesService {
   public especialidades:Especialidades;
   private url="http://localhost:3001/especialidades"
   private url1="http://localhost:3001/especialidad"
+
+  private _notificarUpload = new EventEmitter<any>();
+
   constructor(private http:HttpClient) { }
+
+
+   get notificarUpload():EventEmitter<any>{
+     return this._notificarUpload;
+   }
 
 
   //Retorna todas las especialidades

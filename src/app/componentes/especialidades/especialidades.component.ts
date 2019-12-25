@@ -26,6 +26,11 @@ export class EspecialidadesComponent implements OnInit {
     this.dataSource=new MatTableDataSource();
     this.getEspecialidades()
     this.dataSource.paginator=this.paginator;
+
+    //Notificar upload desde la ventana modal
+    this.es.notificarUpload.subscribe(x=>{
+      this.getEspecialidades()
+    })
   }
 
   getEspecialidades(){

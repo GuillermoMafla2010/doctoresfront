@@ -52,6 +52,7 @@ actualizaEspecialidad(){
       swal.fire('Actualizado','Se actualizo correctamente la especialidad','success');
       this.router.navigate(['/especialidades'])
       this.dialogRef.close();
+      this.es.notificarUpload.emit(this.especialidad)
 
   })
 }
