@@ -1,8 +1,10 @@
+import  swal from 'sweetalert2';
 import { Component, OnInit , Inject} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material';
 import { Especialidades } from 'src/app/modelos/Especialidades';
 import { EspecialidadesService } from 'src/app/servicios/especialidades.service';
+import {Router} from '@angular/router';
 
 
 
@@ -14,10 +16,16 @@ import { EspecialidadesService } from 'src/app/servicios/especialidades.service'
 export class EditarEspecialidadComponent implements OnInit {
 
   public especialidad:Especialidades;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any , public dialogRef : MatDialogRef<EditarEspecialidadComponent> , public es : EspecialidadesService) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any , public dialogRef : MatDialogRef<EditarEspecialidadComponent> , public es : EspecialidadesService , private router:Router) { }
 
   ngOnInit() {
-    this.cargainformacion()
+
+    setTimeout(() => {
+      this.cargainformacion()
+    }, 100);
+
+
+
   }
 
    //metodo que retorna un usuario segun su id
@@ -29,13 +37,23 @@ export class EditarEspecialidadComponent implements OnInit {
       console.log(this.pacientes)
 
     })*/
-    this.es.getEspecialidadPorId(this.data.id).subscribe(x=>{
+    await this.es.getEspecialidadPorId(this.data.id).subscribe(x=>{
       x.id.map(y=>{
         console.log(y.nombre_especialidad)
-        this.especialidad.nombre_especialidad=y.nombre_especialidad
+        this.especialidad=y
       })
     })
    //console.log(this.data.id)
+}
+
+
+actualizaEspecialidad(){
+  this.es.actualizaEspecialidad(this.especialidad).subscribe(x=>{
+      swal.fire('Actualizado','Se actualizo correctamente la especialidad','success');
+      this.router.navigate(['/especialidades'])
+      this.dialogRef.close();
+
+  })
 }
 
 }

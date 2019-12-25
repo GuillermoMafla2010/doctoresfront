@@ -42,4 +42,9 @@ export class EspecialidadesService {
   getEspecialidadPorId(id:number):Observable<any>{
     return this.http.get<any>(`${this.url1}/${id}`)
   }
+
+  //Actualiza una especialidad
+  actualizaEspecialidad(especialidad:Especialidades):Observable<any>{
+    return this.http.put<any>(`${this.url}/${especialidad.id}`, especialidad);
+  }
 }

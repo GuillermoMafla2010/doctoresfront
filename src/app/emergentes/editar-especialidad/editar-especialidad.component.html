@@ -1,7 +1,20 @@
+<div *ngIf="especialidad">
 
-<mat-form-field class="example-full-width">
-    <input matInput placeholder="Especialidad" 
-     [(ngModel)]="especialidad.nombre_especialidad" 
-     name="especialidad" 
-     value={{especialidad.nombre_especialidad}}>
-</mat-form-field>
+  <form (ngSubmit)="actualizaEspecialidad()">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="Especialidad"
+       [(ngModel)]="especialidad.nombre_especialidad"
+       name="especialidad"
+       value="">
+
+
+
+  </mat-form-field>
+
+  <br>
+  <button mat-raised-button color="primary">Guardar</button>
+
+
+  </form>
+
+</div>
