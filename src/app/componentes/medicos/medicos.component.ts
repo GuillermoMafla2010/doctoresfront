@@ -5,6 +5,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import swal from 'sweetalert2';
+import {EditarDoctoresComponent} from 'src/app/emerrgentes/editar-doctores/editar-doctores.component';
 
 @Component({
   selector: 'app-medicos',
@@ -17,7 +18,7 @@ export class MedicosComponent implements OnInit {
   displayedColumns: string[] = ['ID', 'Nombre', 'Apellido', 'Email','Celular','Opciones'];
   dataSource : any;
 
-  
+
   constructor(private ms:MedicosService) { }
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   ngOnInit() {
@@ -36,7 +37,7 @@ export class MedicosComponent implements OnInit {
   }
 
   edit(id){
-    console.log(id)
+    this.dialog.open(EditarDoctoresComponent,{data:id})
   }
 
   borrar(id){
@@ -62,6 +63,6 @@ export class MedicosComponent implements OnInit {
       }
     })
   }
-  
+
 
 }

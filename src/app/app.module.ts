@@ -14,6 +14,7 @@ import { CrearMedicosComponent } from './componentes/medicos/crear-medicos/crear
 import { EspecialidadesComponent } from './componentes/especialidades/especialidades.component';
 import { CitasComponent } from './componentes/citas/citas.component';
 import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/editar-especialidad.component';
+import { EditarDoctoresComponent } from './emergentes/editar-doctores/editar-doctores.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/ed
     CrearMedicosComponent,
     EspecialidadesComponent,
     CitasComponent,
-    EditarEspecialidadComponent
+    EditarEspecialidadComponent,
+    EditarDoctoresComponent
   ],
   imports: [
     BrowserModule,
