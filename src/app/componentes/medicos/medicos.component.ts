@@ -1,3 +1,4 @@
+import { EditarDoctoresComponent } from './../../emergentes/editar-doctores/editar-doctores.component';
 import { Component, OnInit, ViewChild , Inject} from '@angular/core';
 import { MedicosService } from 'src/app/servicios/medicos.service';
 import { Medicos } from 'src/app/modelos/Medicos';
@@ -5,7 +6,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import swal from 'sweetalert2';
-import {EditarDoctoresComponent} from 'src/app/emerrgentes/editar-doctores/editar-doctores.component';
+
 
 @Component({
   selector: 'app-medicos',
@@ -19,7 +20,7 @@ export class MedicosComponent implements OnInit {
   dataSource : any;
 
 
-  constructor(private ms:MedicosService) { }
+  constructor(private ms:MedicosService, public dialog:MatDialog) { }
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   ngOnInit() {
     this.dataSource=new MatTableDataSource();

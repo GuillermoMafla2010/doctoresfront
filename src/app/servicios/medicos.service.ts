@@ -27,4 +27,9 @@ export class MedicosService {
   borrarMedicos(id):Observable<any>{
     return this.http.delete<any>(`${this.url}/${id}`)
   }
+
+  //Metodo que retorna un medico segun su id
+  getMedicoPorId(id):Observable<any>{
+   return  this.http.get<any>(`${this.url}/${id}`);
+  }
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { MedicosService } from './../../servicios/medicos.service';
+import { Component, OnInit , Inject} from '@angular/core';
 import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatDialogRef} from '@angular/material';
+
 
 @Component({
   selector: 'app-editar-doctores',
@@ -9,10 +11,16 @@ import {MatDialogRef} from '@angular/material';
 })
 export class EditarDoctoresComponent implements OnInit {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any , public dialogRef : MatDialogRef<EditarDoctoresComponent>) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any , public dialogRef : MatDialogRef<EditarDoctoresComponent> , public ms:MedicosService) { }
 
   ngOnInit() {
-console.log(this.data.id)
+    this.getDoctores()
+  }
+
+  getDoctores(){
+    this.ms.getMedicoPorId(this.data).subscribe(x=>{
+      console.log(x)
+    })
   }
 
 }

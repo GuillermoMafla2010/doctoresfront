@@ -1,3 +1,4 @@
+import { EditarDoctoresComponent } from './emergentes/editar-doctores/editar-doctores.component';
 import { PacientesverComponent } from './emergentes/pacientesver/pacientesver.component';
 
 import { NgModule } from '@angular/core';
@@ -12,6 +13,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/editar-especialidad.component';
+
 
 @NgModule({
 
@@ -41,7 +43,8 @@ import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/ed
     ],
     entryComponents: [
       PacientesverComponent,
-      EditarEspecialidadComponent
+      EditarEspecialidadComponent,
+      EditarDoctoresComponent
     ]
   })
   export class MaterialModule { }
