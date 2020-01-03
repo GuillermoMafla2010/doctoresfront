@@ -26,6 +26,10 @@ export class MedicosComponent implements OnInit {
     this.dataSource=new MatTableDataSource();
     this.dataSource.paginator=this.paginator;
     this.getMedicos()
+
+    this.ms.notificarEditar.subscribe(x=>{
+      this.getMedicos()
+    })
   }
 
   //Retorna todos los medicos
@@ -38,7 +42,7 @@ export class MedicosComponent implements OnInit {
   }
 
   edit(id){
-    this.dialog.open(EditarDoctoresComponent,{data:id})
+    this.dialog.open(EditarDoctoresComponent,{data:id,maxHeight: '90vh' })
   }
 
   borrar(id){

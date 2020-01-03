@@ -3,5 +3,6 @@ export class Medicos{
     nombre:string;
     apellido:string;
     email:string;
-    celular:string
+    celular:string;
+    medicos_especialidades:any
 }

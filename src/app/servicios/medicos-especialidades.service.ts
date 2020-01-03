@@ -18,4 +18,8 @@ export class MedicosEspecialidadesService {
     console.log(id)
     return this.http.post<any>(this.url,id);
   }
+
+  borrar_medico_especialidad(id:number):Observable<any>{
+    return this.http.delete<any>(`${this.url}/${id}`)
+  }
 }

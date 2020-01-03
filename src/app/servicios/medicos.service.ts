@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable ,EventEmitter} from '@angular/core';
 import { Medicos } from '../modelos/Medicos';
 import {HttpClient} from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -11,7 +11,12 @@ export class MedicosService {
 
   medicos:Medicos
   private url="http://localhost:3001/medicos"
+  private _notificarEditar=new EventEmitter<any>();
   constructor(private http:HttpClient) { }
+
+  get notificarEditar():EventEmitter<any>{
+    return this._notificarEditar;
+  }
 
   //Metodo para ingresar un nuevo medico
   postMedicos(medicos):Observable<any>{
@@ -31,5 +36,11 @@ export class MedicosService {
   //Metodo que retorna un medico segun su id
   getMedicoPorId(id):Observable<any>{
    return  this.http.get<any>(`${this.url}/${id}`);
+  }
+
+
+  //Metodo para actualizar a un medico
+  updateMedico(medicos):Observable<any>{
+    return this.http.put<any>(`${this.url}/${medicos.id}`,medicos)
   }
 }

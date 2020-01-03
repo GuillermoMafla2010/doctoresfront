@@ -13,7 +13,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/editar-especialidad.component';
-
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatListModule} from '@angular/material/list';
 
 @NgModule({
 
@@ -27,7 +28,9 @@ import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/ed
         MatProgressSpinnerModule,
         MatFormFieldModule,
         MatSelectModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatBadgeModule,
+        MatListModule
     ],
     exports: [
         MatInputModule,
@@ -39,7 +42,9 @@ import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/ed
         MatProgressSpinnerModule,
         MatFormFieldModule,
         MatSelectModule,
-        MatAutocompleteModule
+        MatAutocompleteModule,
+        MatBadgeModule,
+        MatListModule
     ],
     entryComponents: [
       PacientesverComponent,
