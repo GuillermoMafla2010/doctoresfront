@@ -15,7 +15,7 @@ export class MedicosEspecialidadesService {
 
 
   guardar_medico_especialidad(id:Medicos_Especialidades):Observable<any>{
-    console.log(id)
+    //console.log(id)
     return this.http.post<any>(this.url,id);
   }
 

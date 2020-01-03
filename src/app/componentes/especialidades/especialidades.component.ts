@@ -37,7 +37,7 @@ export class EspecialidadesComponent implements OnInit {
     this.es.getEspecialidades().subscribe(x=>{
       this.especialidades=x.spec
       this.dataSource.data=this.especialidades
-      console.log(this.dataSource)
+      //console.log(this.dataSource)
       
     })
   }

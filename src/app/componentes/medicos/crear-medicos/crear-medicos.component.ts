@@ -30,7 +30,7 @@ export class CrearMedicosComponent implements OnInit {
 
   ngOnInit() {
     this.getEspecialidades();
-    console.log(this.toppings)
+    //console.log(this.toppings)
     
   }
 
@@ -45,7 +45,7 @@ export class CrearMedicosComponent implements OnInit {
         this.medicos_especialidades.medico_id=x.medicos.id
         this.medicos_especialidades.especialidad_id=y
         this.mes.guardar_medico_especialidad(this.medicos_especialidades).subscribe(z=>{
-          console.log(z)
+          //console.log(z)
         })
       })
       this.router.navigate(['/medicos']);
@@ -67,13 +67,13 @@ export class CrearMedicosComponent implements OnInit {
     this.es.getEspecialidades().subscribe(x=>{
         
         this.especialidades=x.spec
-        console.log(this.especialidades)
+        //console.log(this.especialidades)
     })
   }
 
   onChange(event){
     
-    console.log(event)
+    //console.log(event)
 
     /*(if(event.length > 1){
       event=event[0]
@@ -85,7 +85,7 @@ export class CrearMedicosComponent implements OnInit {
       this.es.getIdPorNombre(x).subscribe(y=>{
         
         this.especialidades_id.push(y.id[0].id)
-        console.log(this.especialidades_id);
+        //console.log(this.especialidades_id);
       })
     })
 

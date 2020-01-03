@@ -18,7 +18,7 @@ export class CrearPacientesComponent implements OnInit {
   }
 
   guardapaciente(){
-    console.log(this.paciente)
+    //console.log(this.paciente)
     this.ps.postpaciente(this.paciente).subscribe(x=>{
       swal.fire('Nuevo Paciente Creado', `${x.paciente.nombre} ${x.paciente.apellido}` , 'success')
       this.router.navigate(['/pacientes']);

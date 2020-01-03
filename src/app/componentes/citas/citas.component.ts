@@ -53,7 +53,7 @@ export class CitasComponent implements OnInit {
 
   seleccionarProducto(event:MatAutocompleteSelectedEvent){
     let producto=event.option.value
-    console.log(producto)
+    //console.log(producto)
   }
 
 }

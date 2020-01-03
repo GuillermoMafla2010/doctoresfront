@@ -45,7 +45,7 @@ export class PacientesComponent implements OnInit {
   }
 
   edit(id) {
-    console.log(id);
+    //console.log(id);
     this.dialog.open(PacientesverComponent, {
       data: {
         animal: id

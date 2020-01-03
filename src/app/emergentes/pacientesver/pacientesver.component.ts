@@ -31,9 +31,9 @@ export class PacientesverComponent implements OnInit {
   async cargainformacion(){
       await this.ps.getPacientesPorId(this.data.animal).subscribe(x=>{
         this.loading=1;
-        console.log(x.paciente[0])
+        //console.log(x.paciente[0])
         this.pacientes=(x.paciente[0])
-        console.log(this.pacientes)
+        //console.log(this.pacientes)
 
       })
   }

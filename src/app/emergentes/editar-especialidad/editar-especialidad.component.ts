@@ -39,7 +39,7 @@ export class EditarEspecialidadComponent implements OnInit {
     })*/
     await this.es.getEspecialidadPorId(this.data.id).subscribe(x=>{
       x.id.map(y=>{
-        console.log(y.nombre_especialidad)
+        //console.log(y.nombre_especialidad)
         this.especialidad=y
       })
     })
