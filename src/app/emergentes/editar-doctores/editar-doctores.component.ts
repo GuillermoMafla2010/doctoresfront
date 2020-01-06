@@ -58,6 +58,7 @@ export class EditarDoctoresComponent implements OnInit {
 
     })
 
+    
       this.filtrarEspecialidades()
 
     })
@@ -79,10 +80,12 @@ export class EditarDoctoresComponent implements OnInit {
   
 
   borrarEspecialidad(id){
-    this.mes.borrar_medico_especialidad(id).subscribe(x=>{
+    this.mes.borrar_medico_especialidad(id).subscribe(spec=>{
+      this.spec_escogida=[]
       this.getDoctores()
-    })
-  }
+      
+  })
+}
 
 
   salir(){
