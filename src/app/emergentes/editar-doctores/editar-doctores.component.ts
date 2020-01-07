@@ -113,8 +113,8 @@ export class EditarDoctoresComponent implements OnInit {
 
   actualizarDoctor(){
     this.ms.updateMedico(this.medicos).subscribe(x=>{
-      //swal.fire('Actualizado','Se ha actualizado correctamente el médico','success')
-      //this.salir()
+      swal.fire('Actualizado','Se ha actualizado correctamente el médico','success')
+      this.salir()
       this.ms.notificarEditar.emit(this.medicos);
       this.especialidades_id.map(y=>{
         this.medicos_especialidades.medico_id=this.medicos.id
