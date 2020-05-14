@@ -18,7 +18,7 @@ export class PacientesComponent implements OnInit {
   displayedColumns: string[] = ['ID', 'Nombre', 'Apellido', 'Email','Celular','Opciones'];
   dataSource : any;
 
-  
+
   constructor(private pacienteservice:PacientesService,public dialog: MatDialog ) { }
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   ngOnInit() {
@@ -28,24 +28,24 @@ export class PacientesComponent implements OnInit {
     this.pacienteservice.notificarEditar.subscribe(x=>{
       this.getpacientes()
     })
-    
+
   }
 
-  
+
 
   getpacientes(){
     this.pacienteservice.getPacientes().subscribe(x=>{
       this.pacientes=x.pacientes;
       setTimeout(() => {
-        this.dataSource.data=this.pacientes  
+        this.dataSource.data=this.pacientes
       }, 10);
-      
-      
+
+
     })
   }
 
   edit(id) {
-    //console.log(id);
+    ////console.log(id);
     this.dialog.open(PacientesverComponent, {
       data: {
         animal: id
@@ -80,7 +80,7 @@ export class PacientesComponent implements OnInit {
 
 
 
-    
+
 
   }
 

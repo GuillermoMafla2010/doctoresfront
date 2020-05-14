@@ -1,3 +1,12 @@
+<mat-progress-spinner *ngIf="!medicos"
+class="example-margin"
+color="primary"
+mode="indeterminate"
+value="indeterminate"
+></mat-progress-spinner>
+
+
+
 
 <div *ngIf="medicos">
     <h3 class="text-center">Datos Generales</h3>
@@ -6,7 +15,7 @@
     <mat-form-field class="example-full-width">
       <input matInput placeholder="Nombre" [(ngModel)]="medicos.nombre" name="nombre">
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width">
         <input matInput placeholder="Nombre" [(ngModel)]="medicos.apellido" name="apellido">
     </mat-form-field>
@@ -18,31 +27,23 @@
     <mat-form-field class="example-full-width">
         <input matInput placeholder="Celular" [(ngModel)]="medicos.celular" name="celular">
       </mat-form-field>
-    
 
-      
+
+
 
 <h5>Especialidades</h5>
       <mat-nav-list>
         <mat-list-item *ngFor="let item of medicos.medicos_especialidades">
            <a matLine >{{ item.Especialidades.nombre_especialidad }}</a>
-           
+
               <mat-icon (click)="borrarEspecialidad(item.id)">delete</mat-icon>
-           
+
         </mat-list-item>
       </mat-nav-list>
-      
-               
 
-   <!-----FUNCIONALIDAD MULTIPLE ID----->
-   <!--<mat-form-field >
-    <mat-select multiple name="users"
-        [(ngModel)]="medicos.medicos_especialidades">
-        <mat-option *ngFor="let item of spec_filtrada" [(value)]="item">
-           {{ item.nombre_especialidad }}
-        </mat-option>
-   </mat-select>
-</mat-form-field> <br>-->
+
+
+
 
 <mat-form-field class="example-full-width">
     <mat-select placeholder="Especialidades" [formControl]="toppings" multiple  (ngModelChange)="onChange($event)">
@@ -61,9 +62,9 @@
         <button type="submit"  style="margin-right: 5px;" class="btn btn-success">Actualizar</button>
         <button type="submit" (click)="salir()" class="btn btn-danger">Cancelar</button>
       </div>
-    
+
   </form>
-  
+
 
 </div>
 

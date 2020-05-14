@@ -1,0 +1,123 @@
+
+
+<div class="wrapper">
+  <!-- Sidebar  -->
+  <nav id="sidebar">
+      <div class="sidebar-header">
+          <h3>Consultas Medicas</h3>
+          <strong>CM</strong>
+      </div>
+
+      <ul class="list-unstyled components">
+          <li class="active">
+              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fas fa-home"></i>
+                  Pacientes
+              </a>
+              <ul class="collapse list-unstyled" id="homeSubmenu">
+                  <li>
+                      <a [routerLink]="['pacientes']" routerLinkActive="router-link-active" >Ver Pacientes</a>
+                  </li>
+                  <li>
+                      <a [routerLink]="['nuevopaciente']">Crear Pacientes</a>
+                  </li>
+
+              </ul>
+          </li>
+          <li>
+
+              <a href="#pageSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                  <i class="fas fa-copy"></i>
+                  Medicos
+              </a>
+              <ul class="collapse list-unstyled" id="pageSubmenu1">
+                  <li>
+                      <a [routerLink]="['medicos']" routerLinkActive="router-link-active" >Ver Medicos</a>
+                  </li>
+                  <li>
+                      <a [routerLink]="['nuevomedico']">Crear Medicos</a>
+                  </li>
+
+              </ul>
+          </li>
+          <li>
+              <a [routerLink]="['especialidades']">
+                  <i class="fas fa-image"></i>
+                  Especialidades
+              </a>
+          </li>
+          <li>
+
+            <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+              <i class="fas fa-copy"></i>
+              Citas Medicas
+              </a>
+
+              <ul class="collapse list-unstyled" id="pageSubmenu">
+                <li>
+              <a [routerLink]="['citas']">
+                  <i class="fas fa-question"></i>
+                  Crear Citas Medicas
+              </a>
+          </li>
+
+          <li>
+            <a [routerLink]="['ver_citas']">
+              <i class="fas fa-question"></i>
+              Ver Citas Medicas
+          </a>
+          </li>
+
+        </ul>
+          <li>
+
+              <a href="#">
+                  <i class="fas fa-paper-plane"></i>
+                  Contacto
+              </a>
+          </li>
+      </ul>
+
+
+  </nav>
+
+  <!-- Page Content  -->
+  <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+
+              <button type="button" id="sidebarCollapse" class="btn btn-primary">
+                  <i class="fas fa-align-left"></i>
+                  <span>Toggle Sidebar</span>
+              </button>
+              <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <i class="fas fa-align-justify"></i>
+              </button>
+
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav ml-auto">
+                      <li class="nav-item active">
+                          <a class="nav-link" href="#">Page</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Page</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Page</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">Page</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+<router-outlet></router-outlet>
+
+  </div>
+</div>
+
+
+

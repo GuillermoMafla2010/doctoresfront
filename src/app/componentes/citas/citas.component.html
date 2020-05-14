@@ -1,17 +1,74 @@
 <div class="container">
     <div class="row">
-        
-        <form class="example-form">
-         <label>Doctor : </label>
+
+        <form class="example-form"  (ngSubmit)="guardarcita()">
+         <label>Doctor :    </label> &nbsp;
          <mat-form-field class="example-full-width">
-                <input type="text" placeholder="Añade un nuevo producto" aria-label="Assignee" matInput [formControl]="autocomplete" [matAutocomplete]="auto">
-                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="seleccionarProducto($event)">
+                <input type="text" placeholder="Nombre Medico" aria-label="Assignee" matInput [formControl]="autocomplete" [(ngModel)]="cita.medico_id" name="cita.medico_id"   [matAutocomplete]="auto" #doctorname>
+                <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn" (optionSelected)="seleccionarProducto($event)"  >
                   <mat-option *ngFor="let option of options | async" [value]="option">
                     {{option.nombre}} {{option.apellido}}
                   </mat-option>
                 </mat-autocomplete>
               </mat-form-field>
-          </form>
-          
+
+
+    <div>
+
+<div>
+         <label>Paciente :     </label> &nbsp;
+         <mat-form-field class="example-full-width">
+                <input type="text" placeholder="Nombre Paciente" aria-label="Assignee" matInput [formControl]="autocompletePacientes"  name="cita.paciente_id" [(ngModel)]="cita.paciente_id"  [matAutocomplete]="autoPacientes" #pacientename>
+                <mat-autocomplete #autoPacientes="matAutocomplete" [displayWith]="displayFnPacientes" (optionSelected)="seleccionarPaciente($event)"  >
+                  <mat-option *ngFor="let option of optionsPacientes | async" [value]="option">
+                    {{option.nombre}} {{option.apellido}}
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+
+
+            </div>
+
+      <label>Especialidad :    </label> &nbsp;
+      <mat-form-field class="example-full-width">
+        <mat-label>Especialidad</mat-label>
+        <mat-select [(ngModel)]="cita.especialidad_id" name="especialidad_id">
+          <mat-option *ngFor="let especialidad of especialidades" [value]="especialidad.id">
+            {{especialidad.nombre_especialidad}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+
+
+    <div>
+      <label> Fecha :  </label> &nbsp;
+      <mat-form-field>
+        <mat-label>Fecha Cita</mat-label>
+        <input matInput [matDatepicker]="dp3" disabled [value]="cita.fecha" (dateChange)="addEvent('change', $event)"  name="fecha">
+        <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+        <mat-datepicker #dp3 disabled="false"  ></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <label>Hora : </label> &nbsp;
+      <mat-form-field class="example-full-width">
+        <mat-label>Hora</mat-label>
+        <mat-select [(ngModel)]="cita.hora_id" name="hora_id">
+          <mat-option *ngFor="let hora of horas" [value]="hora.id">
+            {{hora.horas_laborables}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+    <button class="btn btn-success">Generar Cita</button>
+
+  </form>
+
 </div>
+</div>
+
+

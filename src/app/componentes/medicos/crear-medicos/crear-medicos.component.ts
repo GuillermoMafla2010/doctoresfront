@@ -30,78 +30,78 @@ export class CrearMedicosComponent implements OnInit {
 
   ngOnInit() {
     this.getEspecialidades();
-    //console.log(this.toppings)
-    
+    ////console.log(this.toppings)
+
   }
 
 
   guardarmedicos(){
 
-    
-    
+
+
     this.ms.postMedicos(this.medicos).subscribe(x=>{
       swal.fire('Nuevo medico creado',`${x.medicos.nombre} , ${x.medicos.apellido}`,'success');
       this.especialidades_id.map(y=>{
         this.medicos_especialidades.medico_id=x.medicos.id
         this.medicos_especialidades.especialidad_id=y
         this.mes.guardar_medico_especialidad(this.medicos_especialidades).subscribe(z=>{
-          //console.log(z)
+          ////console.log(z)
         })
       })
       this.router.navigate(['/medicos']);
     })
 
     /*for(var i=0 ; i<this.especialidades_id.length ; i++){
-      
-      console.log(this.especialidades_id.length)
+
+      //console.log(this.especialidades_id.length)
       this.medicos_especialidades.medico_id=this.medicos.id
       this.medicos_especialidades.especialidad_id=this.especialidades_id[i];
-      
+
     }*/
 
-    
+
   }
 
 
   getEspecialidades(){
     this.es.getEspecialidades().subscribe(x=>{
-        
+
         this.especialidades=x.spec
-        //console.log(this.especialidades)
+        ////console.log(this.especialidades)
     })
   }
 
   onChange(event){
-    
-    //console.log(event)
+
+    ////console.log(event)
 
     /*(if(event.length > 1){
       event=event[0]
     }*/
-      
+
 
     event.map(x=>{
       this.especialidades_id=[]
       this.es.getIdPorNombre(x).subscribe(y=>{
-        
+
         this.especialidades_id.push(y.id[0].id)
-        //console.log(this.especialidades_id);
+        ////console.log(this.especialidades_id);
       })
     })
 
      /* this.es.getIdPorNombre(event).subscribe(x=>{
-       
-        
-        console.log(x)
+
+
+        //console.log(x)
         //this.especialidades_id.push(x.id[0].id);
-        //console.log(this.especialidades_id)
-        
-        
+        ////console.log(this.especialidades_id)
+
+
       });*/
-    
 
 
-    
+
+
   }
 
 }

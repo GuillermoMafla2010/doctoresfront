@@ -22,8 +22,8 @@ export class PacientesverComponent implements OnInit {
   ngOnInit() {
 
     this.cargainformacion();
-    
-    
+
+
   }
 
 
@@ -31,9 +31,9 @@ export class PacientesverComponent implements OnInit {
   async cargainformacion(){
       await this.ps.getPacientesPorId(this.data.animal).subscribe(x=>{
         this.loading=1;
-        //console.log(x.paciente[0])
+        ////console.log(x.paciente[0])
         this.pacientes=(x.paciente[0])
-        //console.log(this.pacientes)
+        ////console.log(this.pacientes)
 
       })
   }
@@ -46,7 +46,7 @@ export class PacientesverComponent implements OnInit {
 
   actualizar(){
 
-    console.log(this.pacientes)
+    //console.log(this.pacientes)
       this.ps.actualizapaciente(this.pacientes).subscribe(()=>{
         this.dialogRef.close();
         Swal.fire(" ","Se ha actualizado el paciente correctamente" , 'success')
@@ -54,6 +54,6 @@ export class PacientesverComponent implements OnInit {
         this.ps.notificarEditar.emit(this.pacientes)
       })
   }
-  
+
 
 }

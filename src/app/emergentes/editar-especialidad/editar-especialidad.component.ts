@@ -32,18 +32,18 @@ export class EditarEspecialidadComponent implements OnInit {
    async cargainformacion(){
     /*await this.es.getPacientesPorId(this.data.animal).subscribe(x=>{
       this.loading=1;
-      console.log(x.paciente[0])
+      //console.log(x.paciente[0])
       this.pacientes=(x.paciente[0])
-      console.log(this.pacientes)
+      //console.log(this.pacientes)
 
     })*/
     await this.es.getEspecialidadPorId(this.data.id).subscribe(x=>{
       x.id.map(y=>{
-        //console.log(y.nombre_especialidad)
+        ////console.log(y.nombre_especialidad)
         this.especialidad=y
       })
     })
-   //console.log(this.data.id)
+   ////console.log(this.data.id)
 }
 
 

@@ -15,7 +15,7 @@ import { EditarEspecialidadComponent } from 'src/app/emergentes/editar-especiali
 export class EspecialidadesComponent implements OnInit {
 
   displayedColumns: string[] = ['position', 'name' , 'options'];
-  
+
   public especialidades:Especialidades
   public especialidad:Especialidades=new Especialidades;
   public dataSource:any
@@ -37,15 +37,15 @@ export class EspecialidadesComponent implements OnInit {
     this.es.getEspecialidades().subscribe(x=>{
       this.especialidades=x.spec
       this.dataSource.data=this.especialidades
-      //console.log(this.dataSource)
-      
+      ////console.log(this.dataSource)
+
     })
   }
 
 
 
   guardarEspecialidad(){
-    
+
     this.es.postEspecialidad(this.especialidad).subscribe(y=>{
       swal.fire('Guardado','Especialidad creada con exito','success')
       this.getEspecialidades();

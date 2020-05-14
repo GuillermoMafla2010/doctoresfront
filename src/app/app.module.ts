@@ -15,6 +15,13 @@ import { EspecialidadesComponent } from './componentes/especialidades/especialid
 import { CitasComponent } from './componentes/citas/citas.component';
 import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/editar-especialidad.component';
 import { EditarDoctoresComponent } from './emergentes/editar-doctores/editar-doctores.component';
+import {DatePipe} from '@angular/common';
+import { VerCitasComponent } from './componentes/citas/ver-citas/ver-citas.component';
+import { CitaEditarComponent } from './emergentes/cita-editar/cita-editar.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { InicioComponent } from './componentes/inicio/inicio.component';
+
+
 
 
 @NgModule({
@@ -28,7 +35,12 @@ import { EditarDoctoresComponent } from './emergentes/editar-doctores/editar-doc
     EspecialidadesComponent,
     CitasComponent,
     EditarEspecialidadComponent,
-    EditarDoctoresComponent
+    EditarDoctoresComponent,
+    VerCitasComponent,
+    CitaEditarComponent,
+    LoginComponent,
+    InicioComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -36,10 +48,11 @@ import { EditarDoctoresComponent } from './emergentes/editar-doctores/editar-doc
     HttpClientModule,
     BrowserAnimationsModule,
     MaterialModule,
-    FormsModule, 
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
+
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

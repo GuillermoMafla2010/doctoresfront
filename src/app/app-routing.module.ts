@@ -1,3 +1,6 @@
+import { InicioComponent } from './componentes/inicio/inicio.component';
+import { LoginComponent } from './componentes/login/login.component';
+import { VerCitasComponent } from './componentes/citas/ver-citas/ver-citas.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { MedicosComponent } from './componentes/medicos/medicos.component';
@@ -10,12 +13,18 @@ import { CitasComponent } from './componentes/citas/citas.component';
 
 
 const routes: Routes = [
-  {path:'pacientes' , component:PacientesComponent},
-  {path:'medicos' , component:MedicosComponent},
-  {path:'nuevopaciente' , component:CrearPacientesComponent},
-  {path:'nuevomedico' ,component:CrearMedicosComponent},
-  {path:'especialidades',component:EspecialidadesComponent},
-  {path:'citas' , component:CitasComponent}
+
+
+  {path:'login',component:LoginComponent},
+  {path:'inicio',component:InicioComponent,children:[
+      {path:'pacientes' , component:PacientesComponent},
+      {path:'medicos' , component:MedicosComponent},
+      {path:'nuevopaciente' , component:CrearPacientesComponent},
+      {path:'nuevomedico' ,component:CrearMedicosComponent},
+      {path:'especialidades',component:EspecialidadesComponent},
+      {path:'citas' , component:CitasComponent},
+      {path:'ver_citas',component:VerCitasComponent},
+  ]}
 
 ];
 

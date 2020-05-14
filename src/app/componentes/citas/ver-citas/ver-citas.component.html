@@ -1,0 +1,116 @@
+
+
+
+
+
+
+<form class="form-inline" (ngSubmit)="consultarcita($event)">
+  <div class="form-group mb-2">
+    <label>Doctor:    </label> &nbsp;
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre Doctor</mat-label>
+          <mat-select  name="medico_id" [(ngModel)]="medico_id">
+            <mat-option *ngFor="let medico of lista_medicos"  [value]="medico.id">
+              {{medico.nombre}} {{medico.apellido}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+  <div class="form-group mx-sm-3 mb-2">
+    <label> Fecha :  </label> &nbsp;
+            <mat-form-field>
+              <mat-label>Fecha</mat-label>
+              <input matInput [matDatepicker]="dp3" disabled (dateChange)="addEvent('change', $event)" name=fecha >
+              <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+              <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+            </mat-form-field>
+  </div>
+  <button class="btn btn-primary">Consultar</button>
+</form>
+
+
+
+
+<div *ngIf="lista_citas?.length==0" class="alert alert-danger">
+    No existen citas registradas para este dia
+</div>
+
+
+
+<div class="container layout" [hidden]="lista_citas?.length<=0" >
+
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+          <!--- Note that these columns can be defined in any order.
+                The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="ID">
+            <th mat-header-cell *matHeaderCellDef> ID </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="Nombre">
+            <th mat-header-cell *matHeaderCellDef> Nombre </th>
+            <td mat-cell *matCellDef="let element"> {{element.Paciente.nombre}} </td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Apellido">
+            <th mat-header-cell *matHeaderCellDef> Apellido </th>
+            <td mat-cell *matCellDef="let element"> {{element.Paciente.apellido}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.Paciente.email}} </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Celular">
+            <th mat-header-cell *matHeaderCellDef> Celular </th>
+            <td mat-cell *matCellDef="let element"> {{element.Paciente.celular}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Especialidad">
+            <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+            <td mat-cell *matCellDef="let element"> {{element.Especialidade.nombre_especialidad}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="Hora">
+            <th mat-header-cell *matHeaderCellDef> Hora </th>
+            <td mat-cell *matCellDef="let element"> {{element.hora.horas_laborables}} </td>
+          </ng-container>
+
+
+          <!-- Columna para las opciones -->
+           <ng-container matColumnDef="Opciones">
+            <th mat-header-cell *matHeaderCellDef> Opciones </th>
+            <td mat-cell *matCellDef="let  element" >
+              <button mat-icon-button matTooltip="Click to Edit" class="iconbutton" color="primary" mat-button (click)="edit(element.id)" >
+                  <mat-icon aria-label="Edit">edit</mat-icon>
+                </button>
+              <button mat-icon-button matTooltip="Click to Delete" class="iconbutton" color="warn" mat-button  (click)="borrar(element.id)">
+                  <mat-icon aria-label="Delete">delete</mat-icon>
+                </button>
+              </td>
+          </ng-container>
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+
+        </table>
+
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+
+</div>
+
+

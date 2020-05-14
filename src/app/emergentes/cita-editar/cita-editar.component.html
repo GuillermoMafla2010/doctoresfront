@@ -1,0 +1,100 @@
+
+<mat-progress-spinner *ngIf="especialidades?.length==0"
+class="example-margin"
+color="primary"
+mode="indeterminate"
+value="indeterminate"
+></mat-progress-spinner>
+
+
+<div *ngIf="especialidades?.length>0">
+<form class="example-form" (ngSubmit)="actualizar()">
+  <div class="example-full-width" *ngIf="cita">
+
+
+
+
+<h3 style="text-align:center">Cita # {{cita.id}}</h3>
+
+
+
+
+              <mat-form-field class="example-full-width">
+                  <mat-label>Medico</mat-label>
+                  <mat-select name="medicos" [compareWith]="compararmedicos" [(ngModel)]="cita.medico_id" (selectionChange)="selectMedicos($event)">
+                    <mat-option *ngFor="let medico of medicos" [(value)]="medico.id">
+                      {{medico.nombre}} {{medico.apellido}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+
+
+                <mat-form-field class="example-full-width">
+                    <mat-label>Paciente</mat-label>
+                    <mat-select name="usuarios" [compareWith]="compararpacientes" [(ngModel)]="cita.paciente_id" (selectionChange)="selectPacientes($event)">
+                      <mat-option *ngFor="let paciente of pacientes" [(value)]="paciente.id">
+                        {{paciente.nombre}} {{paciente.apellido}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+
+
+                  <label> Fecha :  </label> &nbsp;
+                  <mat-form-field>
+                    <mat-label>Fecha Cita</mat-label>
+                    <input matInput [matDatepicker]="dp3" disabled [value]="cita.fecha" (dateChange)="addEvent('change', $event)"  name="fecha">
+                    <mat-datepicker-toggle matSuffix [for]="dp3"></mat-datepicker-toggle>
+                    <mat-datepicker #dp3 disabled="false"  ></mat-datepicker>
+                  </mat-form-field>
+
+
+
+                <mat-form-field class="example-full-width">
+                  <mat-label>Especialidad</mat-label>
+                  <mat-select name="especialidad" [compareWith]="compararespecialidad" [(ngModel)]="cita.especialidad_id">
+                    <mat-option *ngFor="let especialidad of especialidades" [(value)]="especialidad.id">
+                      {{especialidad.nombre_especialidad}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+
+                <span class="badge badge-info" >Cita Actual : {{fecha_original | date:'mediumDate' }} : {{hora_laborables}}</span>
+
+                <mat-form-field class="example-full-width">
+                  <mat-label *ngIf="horas.length==0">NO EXISTEN CITAS DISPONIBLES  </mat-label>
+                  <mat-label *ngIf="horas.length>0">Nueva Hora </mat-label>
+                  <mat-select name="hora" [compareWith]="compararhora" [(ngModel)]="cita.hora_id">
+                    <mat-option *ngFor="let hora of horas" [(value)]="hora.id">
+                      {{hora.horas_laborables}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+
+
+
+
+
+
+              <br>
+
+<br><br>
+      <div style="text-align: right;">
+        <button type="submit"  style="margin-right: 5px;" class="btn btn-success">Actualizar</button>
+        <button type="submit" (click)="salir()" class="btn btn-danger">Cancelar</button>
+      </div>
+
+
+
+
+
+
+
+
+
+  </div>
+  </form>
+</div>

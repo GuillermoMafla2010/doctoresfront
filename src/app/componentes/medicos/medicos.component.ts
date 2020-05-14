@@ -37,7 +37,7 @@ export class MedicosComponent implements OnInit {
     this.ms.getMedicos().subscribe(x=>{
       this.medicos=x.medicos
       this.dataSource.data=this.medicos
-      //console.log(this.medicos)
+      ////console.log(this.medicos)
     })
   }
 

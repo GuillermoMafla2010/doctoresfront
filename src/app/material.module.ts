@@ -1,7 +1,12 @@
+import { CitaEditarComponent } from './emergentes/cita-editar/cita-editar.component';
 import { EditarDoctoresComponent } from './emergentes/editar-doctores/editar-doctores.component';
 import { PacientesverComponent } from './emergentes/pacientesver/pacientesver.component';
+import es from '@angular/common/locales/es';
+    import { registerLocaleData } from '@angular/common';
 
-import { NgModule } from '@angular/core';
+    registerLocaleData(es);
+
+import { NgModule,LOCALE_ID } from '@angular/core';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatTableModule} from '@angular/material/table';
@@ -15,6 +20,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { EditarEspecialidadComponent } from './emergentes/editar-especialidad/editar-especialidad.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatListModule} from '@angular/material/list';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatMomentDateModule} from '@angular/material-moment-adapter';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
 
@@ -30,7 +38,11 @@ import {MatListModule} from '@angular/material/list';
         MatSelectModule,
         MatAutocompleteModule,
         MatBadgeModule,
-        MatListModule
+        MatListModule,
+        MatMomentDateModule,
+        MatDatepickerModule,
+        MatCardModule
+
     ],
     exports: [
         MatInputModule,
@@ -44,12 +56,18 @@ import {MatListModule} from '@angular/material/list';
         MatSelectModule,
         MatAutocompleteModule,
         MatBadgeModule,
-        MatListModule
+        MatListModule,
+        MatDatepickerModule,
+        MatMomentDateModule,
+        MatCardModule
     ],
     entryComponents: [
       PacientesverComponent,
       EditarEspecialidadComponent,
-      EditarDoctoresComponent
-    ]
+      EditarDoctoresComponent,
+      CitaEditarComponent
+    ],
+
+    providers: [ MatDatepickerModule, { provide: LOCALE_ID, useValue: "es-*" } ],
   })
   export class MaterialModule { }
